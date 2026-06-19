@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://angonawar1334.github.io/homezh-leyu-com-cn/sitemap.xml
