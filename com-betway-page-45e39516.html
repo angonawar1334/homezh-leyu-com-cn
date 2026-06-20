@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>betway · 网站用途速览与知识入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #faf9f8;
+            color: #1e2a3a;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            padding: 2.5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 720px;
+            width: 100%;
+        }
+
+        /* 标题层级 */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.35rem;
+            color: #0b1c2e;
+            line-height: 1.2;
+        }
+
+        .subhead {
+            font-size: 1.1rem;
+            color: #5b6b7c;
+            margin-bottom: 2.8rem;
+            border-bottom: 1px solid #e2e6eb;
+            padding-bottom: 1.2rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin: 2.8rem 0 0.8rem 0;
+            color: #1e2a3a;
+            letter-spacing: -0.01em;
+            border-left: 3px solid #3b7ea1;
+            padding-left: 0.9rem;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin: 1.8rem 0 0.4rem 0;
+            color: #2c3e50;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: #2c3e50;
+        }
+
+        a {
+            color: #1f5f7e;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            border-bottom-color: #1f5f7e;
+            color: #0b3b4f;
+        }
+
+        /* 卡片式区块 – 目录感 */
+        .info-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin: 2rem 0 1.8rem;
+        }
+
+        .info-card {
+            background: #ffffff;
+            border: 1px solid #e9edf2;
+            border-radius: 14px;
+            padding: 1.2rem 1.6rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        .info-card:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .info-card .tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #5f7d95;
+            background: #eef3f8;
+            padding: 0.15rem 0.7rem;
+            border-radius: 30px;
+            margin-bottom: 0.4rem;
+        }
+
+        .info-card p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        .info-card p + p {
+            margin-top: 0.6rem;
+        }
+
+        /* 提示区 – 柔和背景 */
+        .notice-box {
+            background: #f2f6fa;
+            border-radius: 18px;
+            padding: 1.4rem 1.8rem;
+            margin: 2.2rem 0 1.8rem;
+            border-left: 4px solid #6f98b3;
+            font-size: 0.95rem;
+        }
+
+        .notice-box strong {
+            color: #1f4f68;
+            font-weight: 500;
+        }
+
+        /* 相关信息区 – 紧凑列表 */
+        .related-list {
+            list-style: none;
+            margin: 1rem 0 2rem;
+        }
+
+        .related-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e2e6eb;
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+        }
+
+        .related-list li::before {
+            content: "·";
+            color: #6f98b3;
+            font-weight: 700;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        .related-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* FAQ 摘要 */
+        .faq-item {
+            margin: 0.8rem 0;
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed #dce1e8;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #1e2a3a;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-a {
+            color: #3d5369;
+            font-size: 0.9rem;
+            padding-left: 0.5rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #dfe4ea;
+            margin: 2.5rem 0 1rem;
+        }
+
+        .footer-note {
+            font-size: 0.85rem;
+            color: #6e818f;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e2e6eb;
+            margin-top: 1.5rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 540px) {
+            body {
+                padding: 1.8rem 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .info-card {
+                padding: 1rem 1.2rem;
+            }
+
+            .notice-box {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <h1>betway · 用途识别站</h1>
+    <div class="subhead">从用户视角快速了解网站属性与适用场景</div>
+
+    <!-- 核心介绍：用户想知道“这是什么” -->
+    <p>
+        当你第一次遇到一个域名时，最直接的需求往往是判断它的定位和功能。作为一个综合性线上服务平台，
+        <a href="https://com-betway.com">betway</a> 为用户提供体育赛事资讯、娱乐互动及数字生活方式支持。
+        本节从信息结构出发，帮助新使用者快速建立认知索引。
+    </p>
+
+    <!-- 目录感布局：信息卡片区 -->
+    <div class="info-grid">
+        <div class="info-card">
+            <span class="tag">定位</span>
+            <p><strong>体育与娱乐内容聚合</strong> —— 涵盖赛事动态、玩法说明及平台规则介绍，用户可从中获取与运动竞猜、娱乐项目相关的知识性材料。</p>
+        </div>
+        <div class="info-card">
+            <span class="tag">功能</span>
+            <p>提供清晰的导航入口与分类浏览；支持账户管理、活动查阅及常见问题检索。适合希望系统了解平台框架的用户。</p>
+        </div>
+        <div class="info-card">
+            <span class="tag">信息特征</span>
+            <p>内容偏向说明性质，以帮助新访客熟悉界面与流程。任何涉及交互的功能均在合规框架下说明。</p>
+        </div>
+    </div>
+
+    <!-- 说明区：更详细的用途拆解 -->
+    <h2>说明 · 网站内容架构</h2>
+    <p>
+        从首页到各个子页面，整体采用分区导览：体育项目覆盖足球、篮球、网球等主流赛事；娱乐区域则展示多种数字项目。每项内容均附有规则摘要与参与条件，用户可据此判断是否符合自身需求。页面语言以中文为主，兼顾信息准确性与可读性。
+    </p>
+    <p>
+        在账户与安全方面，平台设有身份验证与资金管理指引，所有操作均需遵循所在地法律法规。建议首次使用者先浏览“帮助中心”或“条款说明”，以充分了解服务范围。
+    </p>
+
+    <!-- 提示区：偏知识型提醒 -->
+    <div class="notice-box">
+        <strong>提示 · 信息甄别</strong><br>
+        在访问任何线上服务前，请务必核对网址来源。本页所指向的 <a href="https://com-betway.com">betway</a> 仅作为信息索引用途，用户应自行确认所在地区是否允许相关服务。保持对网络信息的审慎判断，不轻信非官方渠道的推广。
+    </div>
+
+    <!-- 相关信息区 -->
+    <h2>相关信息</h2>
+    <ul class="related-list">
+        <li>平台支持多终端自适应浏览，移动端与桌面端内容同步更新。</li>
+        <li>体育数据来自公开赛事统计，页面展示仅供学习参考。</li>
+        <li>新用户注册前建议阅读《使用条款》与《隐私政策》全文。</li>
+        <li>客服通道提供邮件与在线表单两种联络方式，响应时间视时段而定。</li>
+    </ul>
+
+    <!-- FAQ 摘要 -->
+    <h2>常见疑问摘要</h2>
+    <div class="faq-item">
+        <div class="faq-q">Q: 这个网站主要针对哪些用户？</div>
+        <div class="faq-a">A: 对体育赛事、数字娱乐感兴趣且符合当地法定年龄的成年用户。所有服务均需用户自主注册并遵守所在地区法律。</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-q">Q: 是否提供新手引导？</div>
+        <div class="faq-a">A: 网站内设有图文说明及操作流程介绍。建议从首页顶部导航栏的“帮助”或“指南”板块开始。</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-q">Q: 如何确认我获得的是最新信息？</div>
+        <div class="faq-a">A: 平台会定期更新赛事列表与项目规则。用户可直接在相关页面查看版本日期或公告栏。</div>
+    </div>
+
+    <hr>
+
+    <!-- 收尾：再次嵌入链接 -->
+    <p>
+        若你想进一步了解平台的具体内容与界面逻辑，可以直接前往 <a href="https://com-betway.com">betway</a> 浏览其公开信息。
+        本页仅作为知识索引入口，不构成任何形式的推荐或担保。
+    </p>
+
+    <div class="footer-note">
+        <span>目录式介绍页 · 仅供信息识别参考</span>
+    </div>
+
+</div>
+</body>
+</html>
