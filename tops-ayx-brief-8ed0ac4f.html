@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f4f6f9;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #2d3a4a;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .page {
+            max-width: 820px;
+            width: 100%;
+        }
+        header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+        .site-badge {
+            display: inline-block;
+            background: #eef1f5;
+            border: 1px solid #d9dfe6;
+            border-radius: 40px;
+            padding: 0.35rem 1.2rem;
+            font-size: 0.8rem;
+            color: #5b6f84;
+            letter-spacing: 0.4px;
+            margin-bottom: 1.2rem;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #1a2633;
+            margin-bottom: 0.2rem;
+            letter-spacing: -0.5px;
+        }
+        .subhead {
+            font-size: 1rem;
+            color: #5f738a;
+            border-left: 3px solid #b6c4d4;
+            padding-left: 1rem;
+            margin-top: 0.4rem;
+        }
+        .card {
+            background: #ffffff;
+            border: 1px solid #e2e7ed;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 1px 4px rgba(0,0,0,0.04);
+            padding: 1.8rem 2rem;
+            margin-bottom: 1.8rem;
+            transition: box-shadow 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04), 0 1px 6px rgba(0,0,0,0.06);
+        }
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #20303f;
+            margin-bottom: 0.8rem;
+        }
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #2c404f;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        p {
+            margin-bottom: 1.1rem;
+            color: #3a4b5e;
+        }
+        .inset-quote {
+            background: #f0f3f7;
+            border-left: 4px solid #b0c2d3;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            font-style: normal;
+            color: #2e4053;
+            font-size: 0.98rem;
+        }
+        .inset-quote em {
+            font-style: italic;
+            color: #38607a;
+        }
+        .meta-note {
+            display: inline-block;
+            background: #e9edf3;
+            border-radius: 24px;
+            padding: 0.25rem 0.9rem;
+            font-size: 0.78rem;
+            color: #4e6480;
+            margin-right: 0.5rem;
+            margin-bottom: 0.3rem;
+        }
+        .scene-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .scene-item {
+            background: #f6f9fd;
+            border: 1px solid #e3e9ef;
+            border-radius: 12px;
+            padding: 0.9rem 1.2rem;
+            flex: 1 1 180px;
+            font-size: 0.95rem;
+        }
+        .scene-item strong {
+            display: block;
+            font-weight: 600;
+            color: #1e3243;
+            margin-bottom: 0.2rem;
+        }
+        .faq-mini {
+            background: #f9fbfc;
+            border: 1px solid #e6ecf2;
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            margin: 1.2rem 0;
+        }
+        .faq-mini dt {
+            font-weight: 500;
+            color: #1e3347;
+            margin-bottom: 0.15rem;
+        }
+        .faq-mini dd {
+            margin-left: 0;
+            margin-bottom: 0.9rem;
+            color: #435a6e;
+            font-size: 0.95rem;
+        }
+        .faq-mini dd:last-child {
+            margin-bottom: 0;
+        }
+        .exit-statement {
+            margin-top: 2.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #dde3ea;
+            font-size: 0.95rem;
+            color: #496077;
+            text-align: center;
+        }
+        a {
+            color: #2a6396;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border 0.15s;
+        }
+        a:hover {
+            border-bottom: 1px solid #2a6396;
+        }
+        .inline-link-highlight {
+            background: #e6eef9;
+            padding: 0.1rem 0.3rem;
+            border-radius: 4px;
+            border-bottom: none;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .card {
+                padding: 1.3rem 1.2rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .scene-item {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <header>
+        <div class="site-badge">· 常驻入口 · 页面说明</div>
+        <h1>爱游戏 · 稳定与清晰</h1>
+        <div class="subhead">从一处安静的页面开始，找到属于你的节奏。</div>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>不只是入口，更是日常的落脚点</h2>
+            <p>许多人寻找「爱游戏」是因为一份习惯——某个午后的闲暇、深夜的放松、或是周末的固定安排。我们把这个页面做成一个简单的介绍，不堆砌功能列表，而是说明它为什么值得你记住。</p>
+            <p>稳定的访问入口意味着：无论你使用什么设备，在什么网络环境下，只要记住一个地址，就能回到熟悉的地方。<a href="https://tops-ayx.com">爱游戏</a>正是这样一个不绕弯的连接。没有多余跳转，没有层层目录，打开的瞬间就是内容本身。</p>
+            <div class="inset-quote">
+                <p>“每次回来，界面还是那个界面，节奏还是那个节奏。对一个经常用的人来说，不变就是最大的省心。”<br><em>——来自一位使用近两年的朋友</em></p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>页面说明 · 它是什么</h2>
+            <p>这个页面不是后台，也不是控制面板。它更像一个<strong>导航性质的介绍页</strong>——告诉你爱游戏提供哪些内容方向、怎样开始、以及遇到常见疑问时如何自助。我们把信息分成几个小块，方便你快速扫读。</p>
+            <h3>三个你可以期待的特点</h3>
+            <div class="scene-grid">
+                <div class="scene-item">
+                    <strong>轻量响应</strong>
+                    页面适配手机与桌面，没有多余加载。打开即用，不消耗多余流量。
+                </div>
+                <div class="scene-item">
+                    <strong>信息直给</strong>
+                    不搞弹窗、不强制注册。想看什么内容，直接浏览即可。
+                </div>
+                <div class="scene-item">
+                    <strong>风格统一</strong>
+                    视觉上保持低饱和、浅色背景，文字清晰，没有刺眼的广告干扰。
+                </div>
+            </div>
+            <p style="margin-top: 1.5rem;">如果你喜欢简洁的浏览体验，<a href="https://tops-ayx.com">爱游戏</a>在风格上不会有太多惊喜，但也没有惊吓——它更倾向于一种可靠的陪伴感。</p>
+        </div>
+
+        <div class="card">
+            <h2>常见使用场景</h2>
+            <p>根据多数人的反馈，下面几个场景最能代表日常的使用方式。你可以参考一下，看看是否和自己重合。</p>
+            <ul style="list-style: none; padding-left: 0; margin-bottom: 0.5rem;">
+                <li style="margin-bottom: 0.65rem; padding-left: 1.8rem; position: relative;">▸ 午休或通勤时，打开页面快速浏览近期更新，不拖泥带水。</li>
+                <li style="margin-bottom: 0.65rem; padding-left: 1.8rem; position: relative;">▸ 需要暂停一下手头的事，切换到一个低信息密度的页面休息眼睛。</li>
+                <li style="margin-bottom: 0.65rem; padding-left: 1.8rem; position: relative;">▸ 作为“默认起始页”之一，每次打开浏览器都从这里出发。</li>
+            </ul>
+            <div class="inset-quote" style="margin-top: 1rem;">
+                <p><strong>小提示：</strong>你可以把链接存到书签栏，或者设置成手机主屏幕的快捷方式。这样每次点开就是直接访问。</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>一些常见问题（FAQ 摘要）</h2>
+            <dl class="faq-mini">
+                <dt>页面打不开或加载很慢怎么办？</dt>
+                <dd>先检查网络连接，或尝试更换 Wi-Fi / 移动数据。如果依然无法访问，可能是临时维护，稍后再试即可。爱游戏的服务器稳定性一直不错，偶尔波动属于正常现象。</dd>
+                <dt>这个页面会收集我的信息吗？</dt>
+                <dd>本页为纯信息展示，不包含任何追踪脚本或表单。你只是浏览，不会留下额外痕迹。</dd>
+                <dt>我想了解更具体的分类内容，在哪里看？</dt>
+                <dd>直接前往<a href="https://tops-ayx.com">爱游戏</a>主页，所有导航和分类都在页面上方和侧边（桌面端）。移动端请使用右上角菜单图标展开。</dd>
+            </dl>
+        </div>
+
+        <div class="card" style="border-left: 4px solid #b0c2d3;">
+            <h2>一句访问提示</h2>
+            <p>如果你已经熟悉爱游戏，可以直接通过下方链接进入。如果你是第一次听说，建议先花一分钟看看这个介绍，了解它的大致气质再决定。</p>
+            <p style="margin-bottom: 0.4rem;"><span class="meta-note">📌 稳定入口</span>  <a href="https://tops-ayx.com" class="inline-link-highlight">爱游戏</a>  —— 链接文本就是站点名称，简单直接。</p>
+            <p style="font-size: 0.9rem; color: #56718c; margin-top: 0.8rem;">不需要记住复杂的路径，也不需要在多个页面之间跳转。把它当作一个安静的起点就好。</p>
+        </div>
+
+        <div class="exit-statement">
+            <p>希望这个页面能帮你建立对爱游戏的清晰印象。每次回来，都是一次稳定的相遇。</p>
+        </div>
+    </main>
+</div>
+</body>
+</html>
