@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>棋牌游戏 · 知识库与留存指引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f2f7f9;
+            color: #1f2e3a;
+            line-height: 1.6;
+            padding: 20px 16px 40px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* 网格卡片布局主体 */
+        .knowledge-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-top: 10px;
+        }
+
+        @media (min-width: 640px) {
+            .knowledge-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 960px) {
+            .knowledge-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 24px 20px 28px;
+            box-shadow: 0 8px 18px rgba(0, 60, 70, 0.06);
+            transition: box-shadow 0.2s, transform 0.2s;
+            border: 1px solid #d8e9ed;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 24px rgba(28, 100, 110, 0.10);
+            transform: translateY(-3px);
+            border-color: #8cc5d2;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .card-header h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            color: #0b4b57;
+            border-left: 4px solid #3896a8;
+            padding-left: 12px;
+        }
+
+        .card p, .card li {
+            font-size: 0.95rem;
+            color: #2c404b;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card li {
+            padding: 6px 0 6px 20px;
+            position: relative;
+        }
+
+        .card li::before {
+            content: "▹";
+            position: absolute;
+            left: 2px;
+            color: #3896a8;
+            font-weight: 600;
+        }
+
+        .highlight-tag {
+            display: inline-block;
+            background: #deeef2;
+            color: #075562;
+            font-size: 0.75rem;
+            padding: 2px 12px;
+            border-radius: 40px;
+            margin-top: 12px;
+            font-weight: 500;
+        }
+
+        /* hero 区 */
+        .hero-section {
+            padding: 36px 0 20px;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #05414e;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .hero-section .subhead {
+            font-size: 1.1rem;
+            color: #3d6571;
+            max-width: 700px;
+            margin: 16px auto 10px;
+            padding: 0 6px;
+        }
+
+        .hero-section .subhead a {
+            color: #1a7c8e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed #8cc0cb;
+            transition: color 0.15s;
+        }
+
+        .hero-section .subhead a:hover {
+            color: #0b4f5e;
+            border-bottom-style: solid;
+        }
+
+        .entry-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 20px;
+            margin-top: 12px;
+            font-size: 0.9rem;
+            color: #4d717d;
+        }
+
+        .entry-meta span {
+            background: #e2eef1;
+            padding: 4px 16px;
+            border-radius: 40px;
+        }
+
+        /* 提示 / 收藏区 */
+        .reminder-strip {
+            background: #c6e1e9;
+            padding: 28px 24px;
+            border-radius: 32px;
+            margin: 32px 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .reminder-strip .reminder-text {
+            font-size: 1rem;
+            color: #00343f;
+            flex: 2 1 240px;
+        }
+
+        .reminder-strip .reminder-text strong {
+            color: #014451;
+            font-weight: 600;
+        }
+
+        .bookmark-note {
+            background: #ffffffb8;
+            backdrop-filter: blur(2px);
+            border-radius: 60px;
+            padding: 10px 18px 10px 24px;
+            font-size: 0.9rem;
+            color: #0b4451;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+            border: 1px solid #86b8c6;
+            margin-top: 8px;
+        }
+
+        .bookmark-note span {
+            background: #115f6e;
+            color: white;
+            border-radius: 50px;
+            padding: 2px 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* 相关信息区 bottom */
+        .info-footer {
+            margin-top: 48px;
+            border-top: 1px solid #ccdee4;
+            padding-top: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .info-footer .faq-mini {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        @media (min-width: 600px) {
+            .info-footer .faq-mini {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .faq-item {
+            background: #ffffffd0;
+            padding: 16px 20px;
+            border-radius: 30px;
+            border: 1px solid #bed7df;
+        }
+
+        .faq-item q {
+            font-style: normal;
+            font-weight: 500;
+            color: #01414e;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .faq-item p {
+            font-size: 0.9rem;
+            color: #254d58;
+        }
+
+        .footnote {
+            font-size: 0.85rem;
+            color: #5d7d88;
+            text-align: center;
+            margin-top: 16px;
+            border-top: 1px dashed #b6d0d9;
+            padding-top: 20px;
+        }
+
+        .footnote a {
+            color: #0b6a7c;
+            text-decoration: none;
+        }
+
+        .footnote a:hover {
+            text-decoration: underline;
+        }
+
+        /* 通用 */
+        a {
+            color: #1a7c8e;
+        }
+
+        .dot-accent {
+            color: #3896a8;
+        }
+
+        .btn-ghost {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid #58a3b5;
+            padding: 8px 22px;
+            border-radius: 80px;
+            font-size: 0.9rem;
+            color: #04424f;
+            font-weight: 500;
+            transition: 0.15s;
+            text-decoration: none;
+        }
+
+        .btn-ghost:hover {
+            background: #3d93a5;
+            color: white;
+            border-color: #3d93a5;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- hero 标题 + 再次访问语境 -->
+    <div class="hero-section">
+        <h1>📇 棋牌 · 知识库</h1>
+        <div class="subhead">
+            这里是关于 <a href="https://play-qipai.com">棋牌游戏</a> 的持续记录与入口索引。<br>
+            无论你是再次光顾，还是初次探访，都可以从这里找到熟悉的脉络。
+        </div>
+        <div class="entry-meta">
+            <span>📌 已收藏 · 常回来看看</span>
+            <span>🔄 内容持续修订</span>
+            <span>🏷️ 目录式结构</span>
+        </div>
+    </div>
+
+    <!-- 网格卡片：目录感布局 -->
+    <div class="knowledge-grid">
+
+        <!-- 卡片 1：说明区 · 再次访问的意义 -->
+        <div class="card">
+            <div class="card-header">
+                <h3>📖 为何再次访问</h3>
+            </div>
+            <p>当你再次打开这个页面，意味着你对<a href="https://play-qipai.com" style="text-decoration: underline dotted;">棋牌游戏</a>的体验仍有好奇或需要回顾。我们保留了这个轻量的知识入口，方便你快速找回状态，而不必重新搜索。</p>
+            <ul>
+                <li>汇集常见规则与变化</li>
+                <li>记录不同局面的思路</li>
+                <li>沉淀社区里的技巧碎片</li>
+            </ul>
+            <div class="highlight-tag">📋 说明区 · 常驻</div>
+        </div>
+
+        <!-- 卡片 2：提示区 · 收藏与关注 -->
+        <div class="card">
+            <div class="card-header">
+                <h3>🔖 收藏提示</h3>
+            </div>
+            <p>将本页加入浏览器书签，或使用收藏夹管理。当你需要重温某些牌局逻辑或游戏细节时，无需重新发掘——它就在这里。</p>
+            <p style="margin-top: 8px;">同时关注页面更新，我们会不定期补充更多关于<a href="https://play-qipai.com" style="font-weight: 500; border-bottom: 1px solid #89bcc9;">棋牌游戏</a>的基础内容与常见问题。</p>
+            <div style="margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap;">
+                <span class="btn-ghost" style="pointer-events: none;">⭐ 加入收藏</span>
+                <span class="btn-ghost" style="pointer-events: none;">📌 保持关注</span>
+            </div>
+        </div>
+
+        <!-- 卡片 3：相关信息区 · 场景与 FAQ 摘要 -->
+        <div class="card">
+            <div class="card-header">
+                <h3>🧩 相关信息</h3>
+            </div>
+            <ul>
+                <li>常用术语与解释</li>
+                <li>不同玩法比较简表</li>
+                <li>常见疑问：计分、座位、轮转</li>
+                <li>观察与复盘建议</li>
+            </ul>
+            <p style="margin-top: 10px; font-size: 0.9rem;">—— 更多条目可在 FAQ 区扩展阅读，或直接通过<a href="https://play-qipai.com" style="font-weight: 500;">棋牌游戏</a>页面获取最新动态。</p>
+            <div class="highlight-tag">📎 信息索引</div>
+        </div>
+
+        <!-- 卡片 4：补充卡片（第四张）使网格丰富，内容：持续关注的角度 -->
+        <div class="card">
+            <div class="card-header">
+                <h3>🔄 持续关注</h3>
+            </div>
+            <p>棋牌游戏的世界里，规则与习惯不断演变。保持关注可以让你接触到不同的策略视角和社区讨论。本站作为记录节点，方便你随时回到讨论语境中。</p>
+            <p style="margin-top: 10px;">例如：<br>• 不同地区的变体规则<br>• 常见策略误区<br>• 牌局礼仪小贴士</p>
+            <div style="margin-top: 12px; font-size: 0.85rem; color: #1b6c7c;">📬 <a href="https://play-qipai.com" style="text-decoration: none;">棋牌游戏</a> · 收藏入口</div>
+        </div>
+    </div>
+
+    <!-- 提示/收藏区 强化再次访问语境 -->
+    <div class="reminder-strip">
+        <div class="reminder-text">
+            <strong>📑 再次访问 · 收藏提示</strong><br>
+            如果你觉得这里的内容对你有帮助，不妨收藏本页。<br>
+            下次回来时，直接打开书签即可继续浏览，无需重新搜索。
+        </div>
+        <div class="bookmark-note">
+            <span>Ctrl+D</span> 或 <span>⭐</span> 加入浏览器收藏
+        </div>
+    </div>
+
+    <!-- 相关信息区：FAQ 摘要 + 更多条目 -->
+    <div class="info-footer">
+        <div style="font-weight: 500; color: #123f4a; font-size: 1rem; margin-bottom: 4px;">❓ 常见问题摘要 (FAQ)</div>
+        <div class="faq-mini">
+            <div class="faq-item">
+                <q>如何快速熟悉一种棋牌游戏？</q>
+                <p>先从基本流程和牌型/组合入手，再了解特殊规则。可以配合 <a href="https://play-qipai.com">棋牌游戏</a> 上的介绍逐步对照。</p>
+            </div>
+            <div class="faq-item">
+                <q>为什么需要持续关注？</q>
+                <p>规则细节、约定俗成的习惯以及社区策略会随时间微调，保持关注能让你始终处于信息圈内。</p>
+            </div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 16px;">
+            <span style="background: #d7e7ed; padding: 6px 20px; border-radius: 50px; font-size: 0.85rem;">🔍 更多 FAQ 整理中</span>
+            <span style="background: #d7e7ed; padding: 6px 20px; border-radius: 50px; font-size: 0.85rem;">📚 知识卡片持续扩充</span>
+        </div>
+
+        <div class="footnote">
+            <span>页面方向 · 知识库入口 · 再次访问 &amp; 收藏提示</span><br>
+            <span style="font-size: 0.8rem;">—— 内容保持温和更新 · <a href="https://play-qipai.com">棋牌游戏</a> ——</span>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
